@@ -1,11 +1,11 @@
 const { Pokemon, Type } = require("../db.js");
 
+const headers = new Headers();
+headers.append("Accept-Encoding", "null");
+
 const getAllBichos = async () => {
   //Obtenemos los bichos de la API
   let bichosApi = [];
-
-  const headers = new Headers();
-  headers.append("Accept-Encoding", "null");
 
   await fetch("https://pokeapi.co/api/v2/pokemon?limit=110", {
     method: "GET",
@@ -141,7 +141,7 @@ const createBicho = async (
 const getBichoById = async (id) => {
   const UUID_REGEX =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
+  
   let bichoDb;
 
   if (UUID_REGEX.test(id)) {
