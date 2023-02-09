@@ -45,8 +45,8 @@ const getAllBichos = async () => {
       },
     },
   });
-
-  return [...bichosApi, ...bichosDb];
+  console.log(bichosApi)
+  return [...bichosApi];
 };
 
 const getBichoByName = async (name) => {
