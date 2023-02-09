@@ -2,10 +2,10 @@ const { Pokemon, Type } = require("../db.js");
 const nodeFetch = require('node-fetch');
 const { Headers } = nodeFetch;
 
-const getAllBichos = async () => {
-  const headers = new Headers();
-  headers.append("Accept-Encoding", "null");
+const headers = new Headers();
+headers.append("Accept-Encoding", "null");
 
+const getAllBichos = async () => {
   //Obtenemos los bichos de la API
   let bichosApi = [];
 
