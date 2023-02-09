@@ -38,17 +38,7 @@ const getAllBichos = async () => {
         });
     });
 
-  //Obtenemos los bichos de DB
-  const bichosDb = await Pokemon.findAll({
-    include: {
-      model: Type,
-      through: {
-        attributes: [],
-      },
-    },
-  });
-
-  return [...bichosApi, ...bichosDb];
+  return [...bichosApi ];
 };
 
 const getBichoByName = async (name) => {

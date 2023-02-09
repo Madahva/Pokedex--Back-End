@@ -15,7 +15,7 @@ pokemonRouter.get("/", async (req, res) => {
     if (name) {
       bichos = await getBichoByName(name);
     } else {
-      bichos = "Hola";
+      bichos = await getAllBichos();
     }
 
     if (!bichos) {
