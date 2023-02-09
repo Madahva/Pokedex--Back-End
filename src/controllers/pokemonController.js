@@ -1,4 +1,5 @@
 const { Pokemon, Type } = require("../db.js");
+const fetch = require('node-fetch');
 
 const getAllBichos = async () => {
   //Obtenemos los bichos de la API
@@ -45,8 +46,8 @@ const getAllBichos = async () => {
       },
     },
   });
-  console.log(bichosApi)
-  return [...bichosApi];
+
+  return [...bichosApi, ...bichosDb];
 };
 
 const getBichoByName = async (name) => {
