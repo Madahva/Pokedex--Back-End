@@ -4,8 +4,12 @@ const getAllBichos = async () => {
   //Obtenemos los bichos de la API
   let bichosApi = [];
 
+  const headers = new Headers();
+  headers.append("Accept-Encoding", "null");
+
   await fetch("https://pokeapi.co/api/v2/pokemon?limit=110", {
     method: "GET",
+    headers: headers,
   })
     .then((response) => response.json())
     .then(async (data) => {
@@ -38,7 +42,17 @@ const getAllBichos = async () => {
         });
     });
 
-  return [...bichosApi ];
+  //Obtenemos los bichos de DB
+  const bichosDb = await Pokemon.findAll({
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
+      },
+    },
+  });
+
+  return [...bichosApi, ...bichosDb];
 };
 
 const getBichoByName = async (name) => {
