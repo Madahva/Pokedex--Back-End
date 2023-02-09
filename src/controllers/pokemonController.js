@@ -1,5 +1,6 @@
 const { Pokemon, Type } = require("../db.js");
-const { Headers } = require('node-fetch');
+const nodeFetch = require('node-fetch');
+const { Headers } = nodeFetch;
 
 const getAllBichos = async () => {
   const headers = new Headers();
