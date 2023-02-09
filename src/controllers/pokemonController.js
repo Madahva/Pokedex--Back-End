@@ -1,9 +1,4 @@
 const { Pokemon, Type } = require("../db.js");
-const nodeFetch = await import('node-fetch');
-const { Headers } = nodeFetch;
-
-const headers = new Headers();
-headers.append("Accept-Encoding", "null");
 
 const getAllBichos = async () => {
   //Obtenemos los bichos de la API
@@ -11,7 +6,6 @@ const getAllBichos = async () => {
 
   await fetch("https://pokeapi.co/api/v2/pokemon?limit=110", {
     method: "GET",
-    headers: headers,
   })
     .then((response) => response.json())
     .then(async (data) => {
@@ -143,7 +137,7 @@ const createBicho = async (
 const getBichoById = async (id) => {
   const UUID_REGEX =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-  
+
   let bichoDb;
 
   if (UUID_REGEX.test(id)) {
