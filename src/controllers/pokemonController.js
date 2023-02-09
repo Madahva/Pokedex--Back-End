@@ -1,5 +1,5 @@
 const { Pokemon, Type } = require("../db.js");
-const nodeFetch = require('node-fetch');
+const nodeFetch = await import('node-fetch');
 const { Headers } = nodeFetch;
 
 const headers = new Headers();
