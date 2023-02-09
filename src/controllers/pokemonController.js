@@ -4,9 +4,7 @@ const getAllBichos = async () => {
   //Obtenemos los bichos de la API
   let bichosApi = [];
 
-  await fetch("https://pokeapi.co/api/v2/pokemon?limit=110", {
-    method: "GET",
-  })
+  await fetch("https://pokeapi.co/api/v2/pokemon?limit=110")
     .then((response) => response.json())
     .then(async (data) => {
       const pokemonPromises = data.results.map(async (pokemon) => {
