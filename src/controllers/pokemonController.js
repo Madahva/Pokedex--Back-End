@@ -1,8 +1,8 @@
 const { Pokemon, Type } = require("../db.js");
+const fetch = require('node-fetch');
 
 const getAllBichos = async () => {
   //Obtenemos los bichos de la API
-  const fetch = await import('node-fetch');
   let bichosApi = [];
 
   await fetch("https://pokeapi.co/api/v2/pokemon?limit=110")
